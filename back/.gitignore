@@ -1,0 +1,8 @@
+application-web
+release/application-web-linux_arm64.tgz
+
+.vscode/
+dist/assets
+dist/*
+!dist/web.go
+test

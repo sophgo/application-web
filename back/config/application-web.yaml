@@ -1,0 +1,25 @@
+server:
+  port: 8089
+  password: admin
+  timeout: 12m
+log:
+  path: /var/log/application-web
+  level: INFO
+db:
+  path: /var/lib/application-web/db/application-web.db
+  savedays: 15
+picture:
+  dir: /data/pictures
+  maxsize: 1000
+  quality: 90
+face:
+  dir: /data/face
+  maxsize: 1000
+  quality: 90
+algorithmhost: 127.0.0.1:8001
+faceAlgohost: 127.0.0.1:19091
+uploadhost: 127.0.0.1:8089
+faceUploadHost: 192.168.0.66:8089
+abilities:
+  1: "人员越线检测"
+  2: "车牌识别"

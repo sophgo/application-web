@@ -1,0 +1,16 @@
+[Unit]
+Description=application-web
+After=network.target
+
+[Service]
+User=root
+ExecStart=/bin/application-web
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=control-group
+Restart=on-failure
+RestartPreventExitStatus=255
+Type=simple
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
