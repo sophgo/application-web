@@ -24,6 +24,10 @@ func Routers() *gin.Engine {
 	cors_config := SetCors()
 	Router.Use(middleware.BlockerMiddleware())
 	Router.Use(cors.New(cors_config))
+	// 设置404处理器
+	Router.NoRoute(func(c *gin.Context) {
+		c.Redirect(http.StatusMovedPermanently, "/")
+	})
 	PublicGroup := Router.Group("")
 	{
 		setWebStatic(PublicGroup)
@@ -33,6 +37,7 @@ func Routers() *gin.Engine {
 		systemRouter.InitFaceImageRouter(PublicGroup)
 		systemRouter.InitFaceUploadRouter(PublicGroup)
 		systemRouter.InitFileRouter(PublicGroup)
+		systemRouter.InitReceiveAlarmRouter(PublicGroup)
 	}
 
 	PrivateGroup := Router.Group("")
@@ -42,7 +47,6 @@ func Routers() *gin.Engine {
 		systemRouter.InitFaceTaskRouter(PrivateGroup)
 		// systemRouter.InitFileRouter(PrivateGroup) todo
 		systemRouter.InitQueryRouter(PrivateGroup)
-		systemRouter.InitReceiveAlarmRouter(PrivateGroup)
 		systemRouter.InitConfigRouter(PrivateGroup)
 		systemRouter.InitFaceAlarmRouter(PrivateGroup)
 		systemRouter.InitBoardRouter(PrivateGroup)
