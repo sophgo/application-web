@@ -46,7 +46,7 @@ defineProps(['menuList'])
       </el-sub-menu>
     </template>
     <!-- 有子路由且大于一个 -->
-    <el-sub-menu v-if="item.children && item.children.length > 1" :index="item.path">
+    <el-sub-menu v-if="item.children && item.children.length > 1 && !item.meta.hidden" :index="item.path">
       <template #title>
         <el-icon>
           <component :is="item.meta.icon"></component>

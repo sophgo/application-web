@@ -1,6 +1,6 @@
 <template>
   <el-card class="box-card" style="margin: 10px 0">
-    <el-button type="primary" size="default" icon="Plus" @click="addTaskItem" :round=true>添加任务</el-button>
+    <el-button type="primary" size="default" icon="Plus" @click="addTaskItem" :round="true">添加任务</el-button>
     <el-table style="margin: 10px 0" border :data="taskItems">
       <!-- <el-table-column label="序号" width="80px" align="center" type="index"></el-table-column> -->
       <el-table-column label="任务名称" prop="taskId" width="120px"></el-table-column>
@@ -35,17 +35,17 @@
       </el-table-column>
       <el-table-column label="操作">
         <template v-slot:default="{ row }">
-          <el-tooltip class="item" effect="dark" content="启动任务" placement="top" :show-after=300>
+          <el-tooltip class="item" effect="dark" content="启动任务" placement="top" :show-after="300">
             <el-button v-if="!Boolean(row.status)" type="primary" size="small" @click="start(row.taskId)" icon="TurnOff" color="rgb(244, 180, 180)"></el-button>
           </el-tooltip>
-          <el-tooltip class="item" effect="dark" content="停止任务" placement="top" :show-after=300>
+          <el-tooltip class="item" effect="dark" content="停止任务" placement="top" :show-after="300">
             <el-button v-if="Boolean(row.status)" type="primary" size="small" @click="stop(row.taskId)" icon="Open" color="rgb(93, 233, 105)"></el-button>
           </el-tooltip>
-          <el-tooltip class="item" effect="dark" content="预览图片" placement="top" :show-after=300>
+          <el-tooltip class="item" effect="dark" content="预览图片" placement="top" :show-after="300">
             <el-button type="primary" size="small" icon="PictureFilled" @click="showPic(row)"></el-button>
           </el-tooltip>
 
-          <el-tooltip class="item" effect="dark" content="编辑" placement="top" :show-after=300>
+          <el-tooltip class="item" effect="dark" content="编辑" placement="top" :show-after="300">
             <el-button type="primary" size="small" icon="Edit" @click="updateTask(row)"></el-button>
           </el-tooltip>
           <el-popconfirm :title="`您确定删除任务'${row.taskId}'`" width="250px" icon="delete" @confirm="removeTask(row.taskId)">

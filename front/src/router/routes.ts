@@ -1,6 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router'
 
-export const constantRoute : RouteRecordRaw[]= [
+export const constantRoute: RouteRecordRaw[] = [
   {
     path: '/login',
     component: () => import('@/views/login/index.vue'),
@@ -81,7 +81,7 @@ export const constantRoute : RouteRecordRaw[]= [
     name: 'Face',
     meta: {
       title: '人脸业务',
-      hidden: false,
+      hidden: true,
       icon: 'Avatar',
     },
     children: [
@@ -155,6 +155,29 @@ export const constantRoute : RouteRecordRaw[]= [
       //     icon: 'List',
       //   },
       // },
+    ],
+  },
+  {
+    path: '/wss',
+    component: () => import('@/layout/index.vue'),
+    name: 'Wss',
+    meta: {
+      title: 'Stream预览',
+      hidden: false,
+      icon: 'Platform',
+    },
+    redirect: '/wss/test',
+    children: [
+      {
+        path: '/wss/test',
+        component: () => import('@/views/wss/index2.vue'),
+        name: 'Wss',
+        meta: {
+          title: '推理结果',
+          hidden: false,
+          icon: 'Platform',
+        },
+      },
     ],
   },
   {
