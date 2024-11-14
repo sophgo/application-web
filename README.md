@@ -12,7 +12,7 @@ docker一体化应用包含了application-web、stream-agent、sophon-stream服�
 ### 下载和启动容器
 
 ``` bash
-./docker/scirp.sh
+./docker/scirp.sh BM1688  # BM1684X, BM1684, BM1688 or CV186AH
 ```
 
 查看容器运行状态
