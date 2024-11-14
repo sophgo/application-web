@@ -26,9 +26,10 @@ CONTAINER ID        IMAGE                     COMMAND                  CREATED  
 ### 运行程序
 
 1、浏览器打开页面，这里端口是8088端口  
-2、添加任务
+2、登录用户名和密码均为admin  
+3、添加任务
 可以直接添加RTSP地址，也可以直接使用docker容器内部的视频文件/agent-stream/samples/yolov5/data/videos/test_car_person_1080P.avi，选择算法后直接运行，即可查看检测结果。  
-登录用户名和密码均为admin  
+
 <img src="docker/add.png" alt="Add Image" style="max-width: 60%; height: auto;" />
 <img src="docker/alarm.png" alt="Alarm Image" style="max-width: 60%; height: auto;" />
 
